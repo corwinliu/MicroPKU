@@ -9,7 +9,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	var RequestDate = request.params.RequestDate;
 	var Depart = ParseDepart(StudentId);
 	var DeanInfo = AV.Object.extend("DeanInfo");
-	var query = new AV.query(DeanInfo);
+	var query = new AV.Query(DeanInfo);
 	query.equalTo("Date", RequestDate);
 	query.find({
 		success: function(results){
