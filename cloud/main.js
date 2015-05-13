@@ -54,7 +54,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	})
 });
 
-AV.Cloud.define("GetInfoList", function(request, response) {
+AV.Cloud.define("GetItem", function(request, response) {
 	var ObjectId = request.params.objectId;
 	var Source = request.params.Source;
 	if (Source == "Dean") {
