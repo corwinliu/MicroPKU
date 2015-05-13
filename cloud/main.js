@@ -64,7 +64,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 
 function ParseDepart(StudentId){
 	var Id = parseInt(StudentId);
-	Id = Id / 1000;
+	Id = Math.floor(Id / 1000);
 	Id = Id % 100000;
 	return Id;
 }
