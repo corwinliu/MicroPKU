@@ -28,8 +28,21 @@ AV.Cloud.define("GetInfoList", function(request, response){
 						//for(var i = 0; i < results.length; i++){
 							Result.push(results);
 							console.log(2);
-						//}
-						response.success(Result);
+							var LectureInfo = AV.Object.extend("LectureInfo");
+							var query3 = new AV.Query(LectureInfo);
+							query3.equalTo("Date", RequestDate);
+							query3.equalTo("Depart", Depart);
+							query3.find({
+								success: function(results){
+									for(var i = 0; i < results.length; i++){
+										Result.push(results[i]);
+									}
+									response.success(Result);
+								},
+								error: function(error){
+									alert("Error");
+								}
+							})
 					},
 					error: function(error){
 						alert("Error");
@@ -45,21 +58,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 
 	
 
-	// var LectureInfo = AV.Object.extend("LectureInfo");
-	// var query3 = new AV.Query(LectureInfo);
-	// query3.equalTo("Date", RequestDate);
-	// query3.equalTo("Depart", Depart);
-	// query3.find({
-	// 	success: function(results){
-	// 		for(var i = 0; i < results.length; i++){
-	// 			Result.push(results[i]);
-	// 		}
-	// 		response.success(Result);
-	// 	},
-	// 	error: function(error){
-	// 		alert("Error");
-	// 	}
-	// })
+
 });
 
 
