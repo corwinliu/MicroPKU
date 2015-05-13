@@ -30,7 +30,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 							//console.log(2);
 							var LectureInfo = AV.Object.extend("LectureInfo");
 							var query3 = new AV.Query(LectureInfo);
-							//query3.equalTo("Date", RequestDate);
+							query3.equalTo("Date", RequestDate);
 							console.log(Depart);
 							query3.equalTo("Depart", Depart);
 							query3.find({
@@ -66,5 +66,5 @@ function ParseDepart(StudentId){
 	var Id = parseInt(StudentId);
 	Id = Math.floor(Id / 1000);
 	Id = Id % 100000;
-	return Id;
+	return Id+"";
 }
