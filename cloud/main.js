@@ -17,17 +17,17 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	query1.find({
 		success: function(results){
 			response.success(results);
-			//for(var i = 0; i < results.length; i++){
-			//	Result.push(results[i]);
+			for(var i = 0; i < results.length; i++){
+				Result.push(results[i]);
 				//response.success(results[i]);
-				//response.success(Result);
+				response.success(Result);
 			//}
 		},
 		error: function(error){
 			alert("Error");
 		}
 	})
-/*
+
 	var SccInfo = AV.Object.extend("SccInfo");
 	var query2 = new AV.Query(SccInfo);
 	query2.equalTo("Date", RequestDate);
@@ -44,7 +44,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 			alert("Error");
 		}
 	})
-*/
+
 
 });
 
