@@ -89,7 +89,7 @@ function getItemFromTable(table, object_id) {
 			console.log("CQL Error in table: " + table);
 		}
 	})
-	while (result == ""){}
+	while (ret == ""){}
 	return ret;
 }
 
