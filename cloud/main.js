@@ -69,7 +69,7 @@ AV.Cloud.define("GetInfoList", function(request, response) {
 	else {
 		alert("Error");
 	}
-}
+});
 
 function getItemFromTable(table, object_id) {
 	var Info = AV.Object.extend(table);
