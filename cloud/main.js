@@ -60,37 +60,34 @@ AV.Cloud.define("GetItem", function(request, response) {
 	console.log("ObjectId: " + ObjectId);
 	console.log("Source: " + Source);
 	if (Source == "Dean") {
-		response.success(getItemFromTable("DeanInfo", ObjectId));
+		getItemFromTable("DeanInfo", ObjectId, response);
 	}
 	else if (Source == "Scc") {
-		response.success(getItemFromTable("SccInfo", ObjectId));
+		getItemFromTable("SccInfo", ObjectId, response);
 	}
 	else if (Source == "Lecture") {
-		response.success(getItemFromTable("LectureInfo", ObjectId));
+		getItemFromTable("LectureInfo", ObjectId, response);
 	}
 	else {
 		alert("Error");
 		console.log("No such resource");
+		response.success("");
 	}
 });
 
-function getItemFromTable(table, object_id) {
-	ret = ""
+function getItemFromTable(table, object_id, response) {
 	var Info = AV.Object.extend(table);
 	var query = new AV.Query(Info);
 	query.equalTo("objectId", object_id);
 	query.find({
 		success: function(results){
-			ret = results;
+			response.success(results);
 		},
 		error: function(error){
 			alert("Error");
-			ret = "{}"
 			console.log("CQL Error in table: " + table);
 		}
 	})
-	while (ret == ""){}
-	return ret;
 }
 
 
