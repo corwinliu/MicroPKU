@@ -17,10 +17,10 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	query1.find({
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
-				//Result.push(results[i]);
+				Result.push(results[i]);
 				//response.success(Result);
 			}
-			response.success(results);
+			response.success(Result);
 		},
 		error: function(error){
 			alert("Error");
