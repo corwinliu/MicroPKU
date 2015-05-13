@@ -41,21 +41,21 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		}
 	})
 
-	var LectureInfo = AV.Object.extend("LectureInfo");
-	var query3 = new AV.Query(LectureInfo);
-	query3.equalTo("Date", RequestDate);
-	query3.equalTo("Depart", Depart);
-	query3.find({
-		success: function(results){
-			for(var i = 0; i < results.length; i++){
-				Result.push(results[i]);
-			}
-			response.success(Result);
-		},
-		error: function(error){
-			alert("Error");
-		}
-	})
+	// var LectureInfo = AV.Object.extend("LectureInfo");
+	// var query3 = new AV.Query(LectureInfo);
+	// query3.equalTo("Date", RequestDate);
+	// query3.equalTo("Depart", Depart);
+	// query3.find({
+	// 	success: function(results){
+	// 		for(var i = 0; i < results.length; i++){
+	// 			Result.push(results[i]);
+	// 		}
+	// 		response.success(Result);
+	// 	},
+	// 	error: function(error){
+	// 		alert("Error");
+	// 	}
+	// })
 });
 
 
