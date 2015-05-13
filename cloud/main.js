@@ -47,22 +47,46 @@ AV.Cloud.define("GetInfoList", function(request, response){
 						alert("Error");
 					}
 				})
-						//}
-						//response.success(Result);
 		},
 		error: function(error){
 			alert("Error");
 		}
 	})
-
-	
-
-
 });
 
+AV.Cloud.define("GetInfoList", function(request, response) {
+	var ObjectId = request.params.objectId;
+	var Source = request.params.Source;
+	if (Source == "Dean") {
+		response.success(getItemFromTable("DeanInfo", ObjectId));
+	}
+	else if (Source == "Scc") {
+		response.success(getItemFromTable("SccInfo", ObjectId));
+	}
+	else if (Source == "Lecture") {
+		response.success(getItemFromTable("LectureInfo", ObjectId));
+	}
+	else {
+		alert("Error");
+	}
+}
+
+function getItemFromTable(table, object_id) {
+	var Info = AV.Object.extend(table);
+	var query = new AV.Query(Info);
+	query.equalTo("objectId", object_id);
+	query.find({
+		success: function(results){
+			return results;
+		},
+		error: function(error){
+			alert("Error");
+		}
+	})		
+}
 
 
-function ParseDepart(StudentId){
+function ParseDepart(StudentId) {
 	var Id = parseInt(StudentId);
 	Id = Math.floor(Id / 1000);
 	Id = Id % 100000;
