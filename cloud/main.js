@@ -16,7 +16,6 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	query1.equalTo("Date", RequestDate);
 	query1.find({
 		success: function(results){
-			response.success(results);
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
 				//response.success(results[i]);
