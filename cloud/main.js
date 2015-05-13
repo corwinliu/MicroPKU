@@ -57,6 +57,8 @@ AV.Cloud.define("GetInfoList", function(request, response){
 AV.Cloud.define("GetItem", function(request, response) {
 	var ObjectId = request.params.objectId;
 	var Source = request.params.Source;
+	console.log("ObjectId: " + ObjectId);
+	console.log("Source: " + Source);
 	if (Source == "Dean") {
 		response.success(getItemFromTable("DeanInfo", ObjectId));
 	}
@@ -68,6 +70,7 @@ AV.Cloud.define("GetItem", function(request, response) {
 	}
 	else {
 		alert("Error");
+		console.log("No such resource");
 	}
 });
 
@@ -81,6 +84,7 @@ function getItemFromTable(table, object_id) {
 		},
 		error: function(error){
 			alert("Error");
+			console.log("Can't find item in table: " + table);
 		}
 	})		
 }
