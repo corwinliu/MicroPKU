@@ -14,7 +14,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	var DeanInfo = AV.Object.extend("DeanInfo");
 	var query1 = new AV.Query(DeanInfo);
 	query1.equalTo("Date", RequestDate);
-	query1.first({
+	query1.find({
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
@@ -30,7 +30,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	var SccInfo = AV.Object.extend("SccInfo");
 	var query2 = new AV.Query(SccInfo);
 	query2.equalTo("Date", RequestDate);
-	query2.first({
+	query2.find({
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
