@@ -34,9 +34,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 							query3.equalTo("Depart", Depart);
 							query3.find({
 								success: function(results){
-									for(var i = 0; i < results.length; i++){
-										Result.push(results[i]);
-									}
+									Result.push(results);
 									response.success(Result);
 								},
 								error: function(error){
