@@ -19,7 +19,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			//for(var i = 0; i < results.length; i++){
 				Result.push(results);
-				console.log(1);
+				//console.log(1);
 				var SccInfo = AV.Object.extend("SccInfo");
 				var query2 = new AV.Query(SccInfo);
 				query2.equalTo("Date", RequestDate);
@@ -27,7 +27,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 					success: function(results){
 						//for(var i = 0; i < results.length; i++){
 							Result.push(results);
-							console.log(2);
+							//console.log(2);
 							var LectureInfo = AV.Object.extend("LectureInfo");
 							var query3 = new AV.Query(LectureInfo);
 							query3.equalTo("Date", RequestDate);
