@@ -28,7 +28,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		}
 	})
 
-	var SccInfo = AV.Object.extend("SccInfo");
+	/*var SccInfo = AV.Object.extend("SccInfo");
 	var query2 = new AV.Query(SccInfo);
 	query2.equalTo("Date", RequestDate);
 	query2.find({
@@ -43,7 +43,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		error: function(error){
 			alert("Error");
 		}
-	})
+	})*/
 
 
 });
