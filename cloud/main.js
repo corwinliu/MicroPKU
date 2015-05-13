@@ -18,9 +18,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
-				//response.success(results[i]);
 			}
-			//response.success(Result);
 		},
 		error: function(error){
 			alert("Error");
@@ -34,8 +32,22 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
-				//response.success(results[i]);
-				//response.success(Result);
+			}
+			//response.success(Result);
+		},
+		error: function(error){
+			alert("Error");
+		}
+	})
+
+	var LectureInfo = AV.Object.extend("LectureInfo");
+	var query3 = new AV.Query(LectureInfo);
+	query3.equalTo("Date", RequestDate);
+	query3.equalTo("Depart", Depart);
+	query3.find({
+		success: function(results){
+			for(var i = 0; i < results.length; i++){
+				Result.push(results[i]);
 			}
 			response.success(Result);
 		},
@@ -43,27 +55,8 @@ AV.Cloud.define("GetInfoList", function(request, response){
 			alert("Error");
 		}
 	})
-
-
 });
 
-
-AV.Cloud.define("GetCourseList", function(request, response){
-	var StudentId = request.params.StudentId;
-	var RequestDate = request.params.RequestDate;
-	var CourseInfo = AV.Object.extend("CourseInfo");
-	var query = new AV.Query(CourseInfo);
-	query.equalTo("Date", RequestDate);
-	query.equalTo("StudentId")
-	query.find({
-		success: function(results){
-			response.success(results);
-		},
-		error: function(error){
-			alert("Error");
-		}
-	})
-});
 
 
 function ParseDepart(StudentId){
