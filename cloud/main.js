@@ -11,6 +11,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	var Result = new Array();
 
 
+
 	var DeanInfo = AV.Object.extend("DeanInfo");
 	var query1 = new AV.Query(DeanInfo);
 	query1.equalTo("Date", RequestDate);
@@ -19,29 +20,30 @@ AV.Cloud.define("GetInfoList", function(request, response){
 			//for(var i = 0; i < results.length; i++){
 				Result.push(results);
 				console.log(1);
-			//}
-			//response.success(Result);
+				var SccInfo = AV.Object.extend("SccInfo");
+				var query2 = new AV.Query(SccInfo);
+				query2.equalTo("Date", RequestDate);
+				query2.find({
+					success: function(results){
+						//for(var i = 0; i < results.length; i++){
+							Result.push(results);
+							console.log(2);
+						//}
+						response.success(Result);
+					},
+					error: function(error){
+						alert("Error");
+					}
+				})
+						//}
+						//response.success(Result);
 		},
 		error: function(error){
 			alert("Error");
 		}
 	})
 
-	var SccInfo = AV.Object.extend("SccInfo");
-	var query2 = new AV.Query(SccInfo);
-	query2.equalTo("Date", RequestDate);
-	query2.find({
-		success: function(results){
-			//for(var i = 0; i < results.length; i++){
-				Result.push(results);
-				console.log(2);
-			//}
-			response.success(Result);
-		},
-		error: function(error){
-			alert("Error");
-		}
-	})
+	
 
 	// var LectureInfo = AV.Object.extend("LectureInfo");
 	// var query3 = new AV.Query(LectureInfo);
