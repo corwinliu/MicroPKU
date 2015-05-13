@@ -31,6 +31,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 							var LectureInfo = AV.Object.extend("LectureInfo");
 							var query3 = new AV.Query(LectureInfo);
 							query3.equalTo("Date", RequestDate);
+							console.log(Depart);
 							//query3.equalTo("Depart", Depart);
 							query3.find({
 								success: function(results){
