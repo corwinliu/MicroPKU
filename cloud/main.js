@@ -18,6 +18,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
+				response.success(Result);
 			}
 		},
 		error: function(error){
