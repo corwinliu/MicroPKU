@@ -21,6 +21,23 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	})
 });
 
+AV.Cloud.define("GetSccList", function(request, response){
+	var RequestDate = request.params.RequestDate;
+	var SccInfo = AV.Object.extend("SccInfo");
+	var query = new AV.Query(SccInfo);
+	query.equalTo("Date", RequestDate);
+	query.find({
+		success: function(results){
+			response.success(results);
+		},
+		error: function(error){
+			alert("Error");
+		}
+	})
+});
+
+
+
 function ParseDepart(StudentId){
 	var Id = parseInt(StudentId);
 	Id = Id / 1000;
