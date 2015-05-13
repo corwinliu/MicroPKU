@@ -18,6 +18,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			//for(var i = 0; i < results.length; i++){
 				Result.push(results);
+				console.log(1);
 			//}
 			//response.success(Result);
 		},
@@ -33,6 +34,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			//for(var i = 0; i < results.length; i++){
 				Result.push(results);
+				console.log(2);
 			//}
 			response.success(Result);
 		},
