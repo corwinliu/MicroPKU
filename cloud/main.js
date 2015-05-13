@@ -16,9 +16,9 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	query1.equalTo("Date", RequestDate);
 	query1.find({
 		success: function(results){
-			for(var i = 0; i < results.length; i++){
-				Result.push(results[i]);
-			}
+			//for(var i = 0; i < results.length; i++){
+				Result.push(results);
+			//}
 			//response.success(Result);
 		},
 		error: function(error){
@@ -31,9 +31,9 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	query2.equalTo("Date", RequestDate);
 	query2.find({
 		success: function(results){
-			for(var i = 0; i < results.length; i++){
-				Result.push(results[i]);
-			}
+			//for(var i = 0; i < results.length; i++){
+				Result.push(results);
+			//}
 			response.success(Result);
 		},
 		error: function(error){
