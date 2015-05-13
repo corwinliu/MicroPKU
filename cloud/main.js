@@ -75,18 +75,20 @@ AV.Cloud.define("GetItem", function(request, response) {
 });
 
 function getItemFromTable(table, object_id) {
+	ret = "{}"
 	var Info = AV.Object.extend(table);
 	var query = new AV.Query(Info);
 	query.equalTo("objectId", object_id);
 	query.find({
 		success: function(results){
-			return results;
+			ret = results;
 		},
 		error: function(error){
 			alert("Error");
 			console.log("Can't find item in table: " + table);
 		}
-	})		
+	})
+	return ret;
 }
 
 
