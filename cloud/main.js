@@ -18,8 +18,8 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
-				alert(results[i]);
-				alert(Result);
+				response.success(results[i]);
+				response.success(Result);
 			}
 		},
 		error: function(error){
@@ -34,8 +34,8 @@ AV.Cloud.define("GetInfoList", function(request, response){
 		success: function(results){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
-				alert(results[i]);
-				alert(Result);
+				response.success(results[i]);
+				response.success(Result);
 			}
 			response.success(Result);
 		},
