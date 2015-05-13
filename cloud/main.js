@@ -40,6 +40,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 			alert("Error");
 		}
 	})
+			response.success(Result);
 
 	var LectureInfo = AV.Object.extend("LectureInfo");
 	var query3 = new AV.Query(LectureInfo);
@@ -50,7 +51,6 @@ AV.Cloud.define("GetInfoList", function(request, response){
 			for(var i = 0; i < results.length; i++){
 				Result.push(results[i]);
 			}
-			response.success(Result);
 		},
 		error: function(error){
 			alert("Error");
