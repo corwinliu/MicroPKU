@@ -8,7 +8,7 @@ AV.Cloud.define("GetInfoList", function(request, response){
 	var StudentId = request.params.StudentId;
 	var RequestDate = request.params.RequestDate;
 	var Depart = ParseDepart(StudentId);
-	var Result;
+	var Result = new Array();
 
 
 	var DeanInfo = AV.Object.extend("DeanInfo");
